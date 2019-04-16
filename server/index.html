@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>广州视新电子有限公司</title>
+	<meta charset="utf-8">
+	
+</head>
+<body style="background:#7f7f7f url()">
+	<h1 style="text-align:center;color:#7e9f8f;">商业显示操作系统</h1>
+
+	<h4 style="text-align:center;margin-top:100px;">请输入你的账号和密码</h3>
+	<form style="position:relative;left:43%;margin-top:20px;border:1px #3e3e3e dashed;width:220px" action='login.php' method='get'>	
+		<p>用户名<input type='text' name="user" placeholder="请输入用户名"/></p>
+		<p>密码&nbsp&nbsp&nbsp&nbsp<input type='password' name="password" placeholder="请输入密码"/></p>
+		<p style="text-align: center">
+			<input type='submit' value="提交"/>
+			<input type='button' onclick='javascript:window.location.href="register.php"' value="注册"/>
+		</p>
+	</form>
+	<div>
+		<h2 style="text-align:center;color:#3e3e3e;">当前时间</h2>
+		<h3 id="time" style="text-align:center;color:red;font-weight: 300;"></h3>
+	</div>
+	<script type="text/javascript">
+		var time = document.getElementById("time");
+		function strPatch(num){
+			if(num < 10){
+				return 0 + String(num);
+			}
+			return String(num);
+		}
+		function refresh(){
+			var getRefTime = new Date();
+			//time.innerHTML = getRefshTime.getHours()+":"+getRefshTime.getMinutes()+":"+getRefshTime.getSeconds();
+			time.innerHTML = strPatch(getRefTime.getHours()) + ":"
+			+ strPatch(getRefTime.getMinutes()) + ":"
+			+ strPatch(getRefTime.getSeconds());
+			setInterval('refresh()',1000);
+		}
+		refresh();
+	</script>
+  	<p style="position:fixed;bottom: 0px;right:100px">&copy 广州视新电子有限公司</p>
+</body>
+</html>
